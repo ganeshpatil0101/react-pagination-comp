@@ -48,19 +48,21 @@ export function Pagination({ page }) {
       curIndex.current = 0;
       arCount.current = arCount.current + 1;
       setNoPages(allBtnsRecords[arCount.current]);
+    } else {
+      curIndex.current = curIndex.current + 1;
     }
-    curIndex.current = curIndex.current + 1;
     setActive(active + 1);
   };
   const prevHandler = () => {
     console.log("prev handler index ", curIndex.current);
-    if (curIndex.current === 1) {
+    if (curIndex.current === 0) {
       console.log(" got the last index process next ", curIndex.current);
       curIndex.current = noPages.length;
       arCount.current = arCount.current - 1;
       setNoPages(allBtnsRecords[arCount.current]);
+    } else {
+      curIndex.current = curIndex.current - 1;
     }
-    curIndex.current = curIndex.current - 1;
     setActive(active - 1);
   };
   const onPageClick = (page, index) => {
